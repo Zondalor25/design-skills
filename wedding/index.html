@@ -35,6 +35,7 @@ color-scheme:light;
 }
 *{box-sizing:border-box;}
 html{scroll-behavior:smooth;}
+html,body{overflow-x:hidden;}
 body{
 margin:0; background:#E9CFAE; color:var(--ink);
 font-family:'Lora',Georgia,serif; font-size:17px; line-height:1.6;
@@ -43,7 +44,7 @@ padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bot
 }
 h1,h2,h3,p{margin:0;}
 p{color:var(--ink-soft);}
-.wrap{max-width:520px; margin:0 auto; position:relative; background:var(--paper); box-shadow:0 0 60px rgba(74,44,32,.25);}
+.wrap{overflow-x:clip; max-width:520px; margin:0 auto; position:relative; background:var(--paper); box-shadow:0 0 60px rgba(74,44,32,.25);}
 
 /* ================= КОНВЕРТ ================= */
 #envelopeOverlay{
@@ -403,7 +404,7 @@ transition:transform .15s ease, box-shadow .25s ease;
 .thankyou .ty-icon{display:block; font-size:2.4rem; color:var(--terra); margin-bottom:6px;}
 
 footer{padding:48px 28px 56px; text-align:center;}
-footer .names-sm{font-family:var(--sig); font-size:2.6rem; white-space:nowrap; color:var(--terra);}
+footer .names-sm{font-family:var(--sig); font-size:clamp(1.8rem,8vw,2.6rem); line-height:1.2; color:var(--terra);}
 footer p{margin-top:8px; font-family:var(--sig); font-size:1.9rem;}
 
 @media (max-width:380px){
