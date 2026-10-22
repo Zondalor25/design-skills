@@ -21,6 +21,7 @@
  * ✏️ → «Версия: Новая версия» → «Развернуть». Адрес /exec при этом не меняется.
  */
 
+var SPREADSHEET_ID = '';                     // ОСТАВЬТЕ ПУСТЫМ, если скрипт открыт из таблицы (Расширения → Apps Script). Если скрипт создан отдельно — вставьте сюда ID таблицы из её адреса: docs.google.com/spreadsheets/d/<ЭТО>/edit
 var SHEET_NAME   = 'Михаил и Виктория 17.07.2027';   // имя листа (вкладки) в таблице — должно совпадать с названием вашего листа
 var TIMEZONE     = 'Asia/Yekaterinburg';     // Орск: UTC+5
 var NOTIFY_EMAIL = '';                       // например 'mirror1825@gmail.com' — тогда на почту придёт письмо о каждом ответе. Пусто = без писем.
@@ -57,7 +58,7 @@ function doGet() {
 
 /** Лист с ответами; при первом запуске создаёт заголовки. */
 function getSheet_() {
-  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  var ss = SPREADSHEET_ID ? SpreadsheetApp.openById(SPREADSHEET_ID) : SpreadsheetApp.getActiveSpreadsheet();
   var sh = ss.getSheetByName(SHEET_NAME) || ss.insertSheet(SHEET_NAME);
   if (sh.getLastRow() === 0) {
     sh.appendRow(HEADERS);
